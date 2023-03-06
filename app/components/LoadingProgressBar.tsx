@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-const LoadingProgressBar = ({ changeColor }: { changeColor?: boolean }) => {
+const LoadingProgressBar = ({ display }: { display: boolean }) => {
   const [progress, setProgress] = useState<number>(0);
 
   useEffect(() => {
@@ -17,7 +17,7 @@ const LoadingProgressBar = ({ changeColor }: { changeColor?: boolean }) => {
   return (
     <div
       className={`fixed top-0 left-0 h-1 transition-all bg-secondary w-4 ${
-        changeColor ? 'sec-color' : ''
+        display ? 'fixed' : 'hidden'
       }`}
       style={{ width: `${progress}%` }}
     />

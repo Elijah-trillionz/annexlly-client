@@ -29,7 +29,11 @@ export default function App() {
         <Links />
       </head>
       <body className='font-body bg-gray-100'>
-        {transition.state !== 'loading' && <LoadingProgressBar />}
+        {transition.state === 'loading' ? (
+          <LoadingProgressBar display={true} />
+        ) : (
+          <LoadingProgressBar display={false} />
+        )}
         <Outlet />
         <ScrollRestoration />
         <Scripts />

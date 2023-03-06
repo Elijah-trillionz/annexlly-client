@@ -1,5 +1,6 @@
 import { LoaderFunction, MetaFunction, redirect } from '@remix-run/node';
 import { useLoaderData } from '@remix-run/react';
+import { redirectUrl } from 'utils/utils';
 import { getCurrentUser } from '~/api.connect/auth.server';
 import LinkShortener from '~/components/svgs/LinkShortener';
 
@@ -36,7 +37,7 @@ const Signin = () => {
         </h1>
         <div className='mt-20'>
           <a
-            href='https://accounts.google.com/o/oauth2/v2/auth/oauthchooseaccount?client_id=258549199436-odp519uffrsvguv7aavngp4q92nivatp.apps.googleusercontent.com&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Fauth&response_type=code&access_type=offline&scope=profile%20email&service=lso&o2v=2&flowName=GeneralOAuthFlow'
+            href={`https://accounts.google.com/o/oauth2/v2/auth/oauthchooseaccount?client_id=258549199436-odp519uffrsvguv7aavngp4q92nivatp.apps.googleusercontent.com&redirect_uri=${redirectUrl}&response_type=code&access_type=offline&scope=profile%20email&service=lso&o2v=2&flowName=GeneralOAuthFlow`}
             className='flex items-center justify-center bg-white rounded-lg h-12 py-1 shadow'
           >
             <span className='basis-4/5 items-center flex justify-center'>

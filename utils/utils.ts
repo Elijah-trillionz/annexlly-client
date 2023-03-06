@@ -1,6 +1,7 @@
 import { json } from '@remix-run/node';
 
 export const apiUrl = `https://annexlly.onrender.com/api`;
+export const redirectUrl = `https://annexlly.vercel.app/auth`;
 
 export const badRequest = (data: unknown) => {
   return json(data, { status: 400 });
