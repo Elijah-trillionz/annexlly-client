@@ -6,7 +6,9 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
+  useTransition,
 } from '@remix-run/react';
+import LoadingProgressBar from './components/LoadingProgressBar';
 import styles from './styles/app.css';
 
 export function links() {
@@ -19,6 +21,7 @@ export const meta: MetaFunction = () => ({
 });
 
 export default function App() {
+  const transition = useTransition();
   return (
     <html lang='en'>
       <head>
@@ -26,6 +29,7 @@ export default function App() {
         <Links />
       </head>
       <body className='font-body bg-gray-100'>
+        {transition.state !== 'loading' && <LoadingProgressBar />}
         <Outlet />
         <ScrollRestoration />
         <Scripts />
